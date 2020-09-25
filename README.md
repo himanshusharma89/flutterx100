@@ -1,6 +1,6 @@
 # flutterx100
 
-A new Flutter project.
+The flutter project for the **#100DaysOfFlutter Challenge**.
 
 ## Getting Started
 
