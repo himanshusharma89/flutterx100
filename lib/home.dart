@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterx100/screens/welcome.dart';
 
 import 'top_bar.dart';
 
@@ -8,21 +9,25 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  ScrollController scrollController;
+
+  @override
+  void initState() {
+    scrollController = ScrollController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         appBar: TopBar(),
-        body: Container(
-          height: height,
-          width: width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        body: Scrollbar(
+          controller: scrollController,
+          child: ListView(
+            controller: scrollController,
             children: [
-              Image.asset('assets/Flutter cover.png')
+              Welcome()
             ],
           ),
         ),
