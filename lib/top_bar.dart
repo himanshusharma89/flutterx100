@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutterx100/website_color.dart';
 
 import 'launcher.dart';
 
@@ -24,12 +24,14 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     return PreferredSize(
-      preferredSize: Size.fromHeight(height * 0.1),
+      preferredSize: preferredSize,
       child: Container(
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
-          BoxShadow(offset: Offset(0, 3), color: Colors.grey, blurRadius: 10)
+          BoxShadow(
+              offset: Offset(0, 3),
+              color: WebsiteColor.googleGraySecondary,
+              blurRadius: 10)
         ]),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -41,12 +43,14 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: FadeInImage(
+                      height: kToolbarHeight,
+                      width: kToolbarHeight,
                       image: AssetImage('assets/flutter.png'),
                       placeholder: AssetImage('assets/Blocks.gif'),
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Text(
                     '100DaysOfFlutter',
@@ -99,14 +103,18 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                   SizedBox(
                     height: kTextTabBarHeight - 5,
                     child: MaterialButton(
-                      color: const Color(0xff08599d),
+                      color: WebsiteColor.flutterBlueSecondary,
                       onPressed: () {},
+                      hoverElevation: 2,
                       child: Center(
                         child: Padding(
                           padding: const EdgeInsets.all(5.0),
                           child: Text(
                             'Start Challenge',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 0.5),
                           ),
                         ),
                       ),
