@@ -1,6 +1,6 @@
 # flutterx100
 
-The flutter project for the **#100DaysOfFlutter Challenge**.
+The flutter project for the **#100DaysOfFlutter Challenge**. This repo is maintained for Hacktoberfest.
 
 ## Getting Started
 
