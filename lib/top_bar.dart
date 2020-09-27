@@ -10,11 +10,11 @@ final Launcher launcher = Launcher();
 class TopBar extends StatelessWidget with PreferredSizeWidget {
   List socialPlatforms = [
     {
-      'URL': 'https://github.com/himanshusharma89',
+      'URL': 'https://github.com/himanshusharma89/flutterx100',
       'iconURL': 'https://img.icons8.com/fluent/50/000000/github.png'
     },
     {
-      'URL': 'https://twitter.com/_SharmaHimanshu',
+      'URL': 'https://twitter.com/100xFlutter',
       'iconURL': 'https://img.icons8.com/color/48/000000/twitter.png'
     },
   ];
@@ -29,9 +29,9 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
       child: Container(
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(
-              offset: Offset(0, 3),
+              offset: Offset(0, 1),
               color: WebsiteColor.googleGraySecondary,
-              blurRadius: 10)
+              blurRadius: 5)
         ]),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -61,24 +61,25 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Center(
-                      child: MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        'About',
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  )),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  topBarItem(
+                      title: 'About',
+                      onTap: () {
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text('This site is currently being built'),
+                          duration: Duration(milliseconds: 4000),
+                        ));
+                      }),
+                  topBarItem(
+                      title: 'Community',
+                      onTap: () {
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text('This site is currently being built'),
+                          duration: Duration(milliseconds: 4000),
+                        ));
+                      }),
                   for (int i = 0; i < socialPlatforms.length; i++)
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 2, vertical: 12),
@@ -101,10 +102,16 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                       ),
                     ),
                   SizedBox(
+                    width: 5,
+                  ),
+                  SizedBox(
                     height: kTextTabBarHeight - 5,
                     child: MaterialButton(
                       color: WebsiteColor.flutterBlueSecondary,
-                      onPressed: () {},
+                      onPressed: () {
+                        launcher.launchURL(
+                            'https://twitter.com/intent/tweet?text=I%27m%20officially%20starting%20to%20the%20100DaysOfFlutter%20Challenge%20starting%20today!%20Learn%20More%20and%20Join%20me!%20hey%20@100xFlutter&url=https://100daysofflutter.azurewebsites.net/&hashtags=100DaysOfFlutter');
+                      },
                       hoverElevation: 2,
                       child: Center(
                         child: Padding(
@@ -126,6 +133,23 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget topBarItem({@required String title, @required Function onTap}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Center(
+          child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: onTap,
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+          ),
+        ),
+      )),
     );
   }
 }

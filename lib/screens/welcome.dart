@@ -12,27 +12,28 @@ class Welcome extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Welcome to',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 25,
-              fontWeight: FontWeight.normal,
-            ),
-          ),
+          // Text(
+          //   'Welcome to',
+          //   style: TextStyle(
+          //     color: Colors.white,
+          //     fontSize: 25,
+          //     fontWeight: FontWeight.normal,
+          //   ),
+          // ),
           Text(
             '#100DaysOfFlutter',
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 55,
                 fontWeight: FontWeight.bold,
-                letterSpacing: 1),
+                letterSpacing: 1,
+                height: 1.5),
           ),
           Text(
             'Challenge',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25,
+              fontSize: 30,
               fontWeight: FontWeight.normal,
             ),
           )
