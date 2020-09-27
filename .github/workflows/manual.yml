@@ -19,13 +19,11 @@ jobs:
       uses: andstor/copycat-action@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        src_path: build/web/.
+        src_path: build/web/
         dst_path: /public-flutter/
         dst_owner: himanshusharma89
         dst_repo_name: 100DaysOfFlutter
         dst_branch: test
         src_branch: master
-        src_wiki: false
-        dst_wiki: false
         username: himanshusharma89
         email: ranubhardwaj89@gmail.com
