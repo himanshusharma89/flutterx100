@@ -8,7 +8,7 @@ class Welcome extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
       height: height * 0.46,
-      color: WebsiteColor.googleGray,
+      color: WebsiteColor.flutterBluePrimary,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -16,7 +16,7 @@ class Welcome extends StatelessWidget {
             'Welcome to',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.normal,
             ),
           ),
@@ -32,7 +32,7 @@ class Welcome extends StatelessWidget {
             'Challenge',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.normal,
             ),
           )
