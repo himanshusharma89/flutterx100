@@ -14,4 +14,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_LABEL }}
           # Here we can override the path for the action configuration. If none is provided, default one is `.github/label-pr.yml`
-          CONFIG_PATH: ${{ secrets.REPO_LABEL }}/.github/label-pr.yml
+          CONFIG_PATH: ${{ secrets.REPO_LABEL }}/.github/label.yml
