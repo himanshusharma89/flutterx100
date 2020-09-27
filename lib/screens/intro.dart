@@ -29,7 +29,7 @@ class Intro extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: height*0.02,
+            height: height * 0.02,
           ),
           Text(
             'Rules',
@@ -41,7 +41,7 @@ class Intro extends StatelessWidget {
               style: TextStyle(fontSize: 18),
             ),
           SizedBox(
-            height: height*0.02,
+            height: height * 0.02,
           ),
           Text(
             'Officially start the challenge',
@@ -52,16 +52,16 @@ class Intro extends StatelessWidget {
             style: TextStyle(fontSize: 18),
           ),
           SizedBox(
-            height: height*0.01,
+            height: height * 0.01,
           ),
           SizedBox(
             height: kTextTabBarHeight - 5,
-            width: width*0.15,
+            width: width * 0.15,
             child: MaterialButton(
               color: WebsiteColor.flutterBlueSecondary,
               onPressed: () {
                 launcher.launchURL(
-                    'https://twitter.com/intent/tweet?text=I%27m%20officially%20starting%20to%20the%20100DaysOfFlutter%20Challenge%20starting%20today!%20Learn%20More%20and%20Join%20me!%20hey%20@100xFlutter&url=https://100daysofflutter.azurewebsites.net/&hashtags=100DaysOfFlutter');
+                    'https://twitter.com/intent/tweet?text=I%27m%20officially%20starting%20to%20the%20100DaysOfFlutter%20Challenge%20starting%20today!%20@100xFlutter&url=https://100daysofflutter.azurewebsites.net/&hashtags=100DaysOfFlutter');
               },
               hoverElevation: 2,
               child: Center(
