@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterx100/screens/intro.dart';
 import 'package:flutterx100/screens/welcome.dart';
 
 import 'top_bar.dart';
@@ -26,9 +27,7 @@ class _HomeState extends State<Home> {
           controller: scrollController,
           child: ListView(
             controller: scrollController,
-            children: [
-              Welcome()
-            ],
+            children: [Welcome(), Intro()],
           ),
         ),
       ),
