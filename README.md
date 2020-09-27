@@ -3,8 +3,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Table of contents
-=================
 <!--ts-->
    * [About #100DaysOfFlutter Challenge](#About)
    * [Rules](#Rules)
@@ -39,6 +37,8 @@ We follow certain guidelines in order to maintain this repository.Please find ou
 ## License
 
 Distributed under the CC0-1.0 License.See `LICENSE` for more information.
+=======
+The flutter project for the **#100DaysOfFlutter Challenge**. This repo is maintained for Hacktoberfest also.
 
 ## Getting Started
 
