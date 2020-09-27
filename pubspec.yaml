@@ -28,7 +28,7 @@ dependencies:
   url_launcher: ^5.4.2
   firebase_core: "^0.5.0"
   cloud_firestore: ^0.14.0+2
-  flutter_svg: ^0.19.0
+  # flutter_svg: ^0.19.0
 
 dev_dependencies:
   flutter_test:
