@@ -12,17 +12,24 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         channel: beta
-    - run: flutter config --enable-web
-    - run: flutter pub get
-    - run: flutter build web
-    - uses: andstor/copycat-action@v3
-      with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        src_path: /build/web/
-        dst_path: /public-flutter/
-        dst_owner: himanshusharma89
-        dst_repo_name: 100DaysOfFlutter
-        dst_branch: test
-        src_branch: master
-        username: himanshusharma89
-        email: ranubhardwaj89@gmail.com
+    - run: |
+        flutter config --enable-web
+        flutter pub get
+        flutter build web
+        rm target
+        git clone https://.:${{ secrets.PERSONAL_TOKEN }}@github.com/100DaysOfFlutter target
+        copy /build/web/ target
+        git add target
+        git commit -m "Automatic publish from github.com/prject"
+        git push target test
+#     - uses: andstor/copycat-action@v3
+#       with:
+#         personal_token: ${{ secrets.PERSONAL_TOKEN }}
+#         src_path: /build/web/
+#         dst_path: /public-flutter/
+#         dst_owner: himanshusharma89
+#         dst_repo_name: 100DaysOfFlutter
+#         dst_branch: test
+#         src_branch: master
+#         username: himanshusharma89
+#         email: ranubhardwaj89@gmail.com
