@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterx100/responsive_layout.dart';
 
 import '../website_color.dart';
 
@@ -7,7 +8,9 @@ class Welcome extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Container(
-      height: height * 0.46,
+      height: ResponsiveLayout.isSmallScreen(context)
+          ? height * 0.4
+          : height * 0.46,
       color: WebsiteColor.flutterBluePrimary,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +27,7 @@ class Welcome extends StatelessWidget {
             '#100DaysOfFlutter',
             style: TextStyle(
                 color: Colors.white,
-                fontSize: 55,
+                fontSize: ResponsiveLayout.isSmallScreen(context) ? 40 : 55,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1,
                 height: 1.5),
@@ -33,7 +36,7 @@ class Welcome extends StatelessWidget {
             'Challenge',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 30,
+              fontSize: ResponsiveLayout.isSmallScreen(context) ? 22 : 30,
               fontWeight: FontWeight.normal,
             ),
           )

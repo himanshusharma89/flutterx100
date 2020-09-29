@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx100/launcher.dart';
+import 'package:flutterx100/responsive_layout.dart';
 
 import '../website_color.dart';
 
@@ -15,9 +16,10 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 200),
+      padding: EdgeInsets.symmetric(
+          vertical: 30,
+          horizontal: ResponsiveLayout.isSmallScreen(context) ? 60 : 100),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -38,6 +40,7 @@ class Intro extends StatelessWidget {
           for (int i = 0; i < rules.length; i++)
             Text(
               '${i + 1}. ' + rules[i],
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18),
             ),
           SizedBox(
@@ -49,6 +52,7 @@ class Intro extends StatelessWidget {
           ),
           Text(
             'Willing to start the challenge and share your journey? Click below to tweet it to the world!',
+            textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18),
           ),
           SizedBox(
@@ -56,7 +60,7 @@ class Intro extends StatelessWidget {
           ),
           SizedBox(
             height: kTextTabBarHeight - 5,
-            width: width * 0.15,
+            width: 200,
             child: MaterialButton(
               color: WebsiteColor.flutterBlueSecondary,
               onPressed: () {
@@ -78,7 +82,10 @@ class Intro extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: height * 0.1,
+          ),
         ],
       ),
     );
