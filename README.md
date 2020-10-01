@@ -1,6 +1,15 @@
 # flutterx100
 
-The flutter project for the **#100DaysOfFlutter Challenge**.
+Welcome to the **#100DaysOfFlutter Challenge!** Here you can learn the rules, get answers to your questions by reading the FAQ, and find out more about the Flutter Community.
+
+## Rules
+
+- Work on any Flutter technology for the next 100 Days.
+- Share your progress everyday to the Flutter Community with the #100DaysOfFlutter hashtag.
+
+## Officially Start the Challenge
+
+Willing to start the challenge and share your journey? Click [here](https://twitter.com/intent/tweet?text=I%27m%20officially%20starting%20to%20the%20100DaysOfFlutter%20Challenge%20starting%20today!%20@100xFlutter&url=https://100daysofflutter.azurewebsites.net/&hashtags=100DaysOfFlutter) to tweet it to the world!
 
 ## Getting Started
 
