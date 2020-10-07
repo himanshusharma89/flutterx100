@@ -16,6 +16,7 @@ jobs:
         flutter config --enable-web
         flutter pub get
         flutter build web
+    - run: |
         git clone https://.:${{ secrets.PERSONAL_TOKEN }}@github.com/himanshusharma89/100DaysOfFlutter target
         copy /build/web/ target
         git add target
