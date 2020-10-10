@@ -5,6 +5,7 @@ import 'package:flutterx100/responsive_layout.dart';
 import 'package:flutterx100/screens/intro.dart';
 import 'package:flutterx100/screens/welcome.dart';
 
+import 'screens/faqs.dart';
 import 'top_bar.dart';
 
 class Dashboard extends StatefulWidget {
@@ -49,10 +50,7 @@ class _DashboardState extends State<Dashboard> {
               children: [Welcome(), Intro()],
             ),
           ),
-          Container(
-            color: Colors.blue,
-            child: Text("derp"),
-          )
+          FAQs(),
         ],
       );
 
@@ -69,7 +67,5 @@ class _DashboardState extends State<Dashboard> {
         ],
       );
 
-  void onFAQsTap() {
-    this.pageController.jumpToPage(1);
-  }
+  void onFAQsTap() => this.pageController.jumpToPage(1);
 }
