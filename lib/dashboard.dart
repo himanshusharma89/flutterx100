@@ -53,24 +53,23 @@ class _DashboardState extends State<Dashboard> {
         ],
       );
 
-  Widget get mobileBody => PageView(
-        controller: pageController,
-        scrollDirection: Axis.vertical,
-        physics: NeverScrollableScrollPhysics(),
+  Widget get mobileBody => Stack(
         children: [
-          Stack(
-            children: [
-              ListView(
-                controller: scrollController,
-                children: [Welcome(), Intro()],
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: BottomBar(onFAQsTap),
-              )
-            ],
-          ),
-          FAQs(),
+          PageView(
+              controller: pageController,
+              scrollDirection: Axis.vertical,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                ListView(
+                  controller: scrollController,
+                  children: [Welcome(), Intro()],
+                ),
+                FAQs(),
+              ]),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: BottomBar(onFAQsTap),
+          )
         ],
       );
 
