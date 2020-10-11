@@ -73,6 +73,8 @@ class _DashboardState extends State<Dashboard> {
         ],
       );
 
-  void onLogoTap() => this.pageController.jumpToPage(0);
-  void onFAQsTap() => this.pageController.jumpToPage(1);
+  void onLogoTap() => this.pageController.animateToPage(0,
+      duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+  void onFAQsTap() => this.pageController.animateToPage(1,
+      duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
 }
