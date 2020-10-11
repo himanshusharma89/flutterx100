@@ -6,6 +6,7 @@ final Launcher launcher = Launcher();
 
 // ignore: must_be_immutable
 class FAQs extends StatelessWidget {
+  final ScrollController _scrollController = ScrollController();
   List _faqs = [
     {
       'question':
@@ -67,34 +68,39 @@ class FAQs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return ListView(
-      shrinkWrap: false,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(
-              vertical: 30,
-              horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 200),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Frequently Asked Questions',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30,
+    return Scrollbar(
+      controller: _scrollController,
+      isAlwaysShown: true,
+      child: ListView(
+        controller: _scrollController,
+        shrinkWrap: false,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: 30,
+                horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 200),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Frequently Asked Questions',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              ...getFAQs(),
-              SizedBox(
-                height: height * 0.1,
-              ),
-            ],
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                ...getFAQs(),
+                SizedBox(
+                  height: height * 0.1,
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
