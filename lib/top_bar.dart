@@ -9,6 +9,9 @@ final Launcher launcher = Launcher();
 
 // ignore: must_be_immutable
 class TopBar extends StatelessWidget with PreferredSizeWidget {
+  VoidCallback _onLogoTap;
+  VoidCallback _onFAQsTap;
+
   List socialPlatforms = [
     {
       'URL': 'https://github.com/himanshusharma89/flutterx100',
@@ -19,6 +22,8 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
       'iconURL': 'https://img.icons8.com/color/48/000000/twitter.png'
     },
   ];
+
+  TopBar(this._onLogoTap, this._onFAQsTap);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 10);
@@ -41,25 +46,32 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                 ? MainAxisAlignment.center
                 : MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: FadeInImage(
-                      height: kToolbarHeight,
-                      width: kToolbarHeight,
-                      image: AssetImage('assets/flutter.png'),
-                      placeholder: AssetImage('assets/Blocks.gif'),
-                    ),
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: this._onLogoTap,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: FadeInImage(
+                          height: kToolbarHeight,
+                          width: kToolbarHeight,
+                          image: AssetImage('assets/flutter.png'),
+                          placeholder: AssetImage('assets/Blocks.gif'),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        '100DaysOfFlutter',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w600),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '100DaysOfFlutter',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                ],
+                ),
               ),
               if (ResponsiveLayout.isLargeScreen(context) ||
                   ResponsiveLayout.isMediumScreen(context))
@@ -74,6 +86,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                             duration: Duration(milliseconds: 4000),
                           ));
                         }),
+                    topBarItem(title: 'FAQs', onTap: this._onFAQsTap),
                     topBarItem(
                         title: 'Community',
                         onTap: () {

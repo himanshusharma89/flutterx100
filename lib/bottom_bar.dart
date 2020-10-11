@@ -7,6 +7,8 @@ final Launcher launcher = Launcher();
 
 // ignore: must_be_immutable
 class BottomBar extends StatelessWidget {
+  VoidCallback _onFAQsTap;
+
   List socialPlatforms = [
     {
       'URL': 'https://github.com/himanshusharma89/flutterx100',
@@ -17,6 +19,9 @@ class BottomBar extends StatelessWidget {
       'iconURL': 'https://img.icons8.com/color/48/000000/twitter.png'
     },
   ];
+
+  BottomBar(this._onFAQsTap);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,6 +38,8 @@ class BottomBar extends StatelessWidget {
                 ));
               },
               color: Colors.white),
+          bottomBarItem(
+              title: 'FAQs', onTap: this._onFAQsTap, color: Colors.white),
           bottomBarItem(
               title: 'Community',
               onTap: () {
@@ -80,7 +87,7 @@ class BottomBar extends StatelessWidget {
       @required Function onTap,
       @required Color color}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Center(
           child: MouseRegion(
         cursor: SystemMouseCursors.click,
