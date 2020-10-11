@@ -67,13 +67,13 @@ class FAQs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return PageView(
-      scrollDirection: Axis.vertical,
+    return ListView(
+      shrinkWrap: false,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: 30,
-              horizontal: ResponsiveLayout.isSmallScreen(context) ? 60 : 100),
+              horizontal: ResponsiveLayout.isSmallScreen(context) ? 60 : 300),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -87,7 +87,6 @@ class FAQs extends StatelessWidget {
               SizedBox(
                 height: height * 0.02,
               ),
-              // ..._faqs.map((e) => getFAQ(e)).toList(),
               ...getFAQs(),
               SizedBox(
                 height: height * 0.1,
@@ -124,13 +123,14 @@ class FAQs extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Divider(
-            color: Colors.black,
-            height: 1,
-            thickness: 1,
-            indent: 0,
-            endIndent: 0,
-          ),
+          if (_faqs.indexOf(faq) != _faqs.length - 1)
+            Divider(
+              color: Colors.black,
+              height: 1,
+              thickness: 1,
+              indent: 0,
+              endIndent: 0,
+            ),
         ],
       ),
     );
