@@ -40,7 +40,7 @@ class _DashboardState extends State<Dashboard> {
   Widget get desktopBody => PageView(
         controller: pageController,
         scrollDirection: Axis.vertical,
-        physics: new NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         children: [
           Scrollbar(
             controller: scrollController,
@@ -56,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
   Widget get mobileBody => PageView(
         controller: pageController,
         scrollDirection: Axis.vertical,
-        physics: new NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         children: [
           Stack(
             children: [
