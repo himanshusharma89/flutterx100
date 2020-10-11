@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterx100/bottom_bar.dart';
 import 'package:flutterx100/launcher.dart';
 import 'package:flutterx100/responsive_layout.dart';
 
@@ -67,35 +68,42 @@ class FAQs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return ListView(
-      shrinkWrap: false,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(
-              vertical: 30,
-              horizontal: ResponsiveLayout.isSmallScreen(context) ? 60 : 300),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Frequently Asked Questions',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30,
+    return Stack(children: [
+      ListView(
+        shrinkWrap: false,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: 30,
+                horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 300),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Frequently Asked Questions',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              ...getFAQs(),
-              SizedBox(
-                height: height * 0.1,
-              ),
-            ],
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                ...getFAQs(),
+                SizedBox(
+                  height: height * 0.1,
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
-    );
+        ],
+      ),
+      if (ResponsiveLayout.isSmallScreen(context))
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: BottomBar(() => {}),
+        )
+    ]);
   }
 
   List<Widget> getFAQs() => _faqs.map((e) => getFAQ(e)).toList();

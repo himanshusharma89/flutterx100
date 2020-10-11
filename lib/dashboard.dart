@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx100/bottom_bar.dart';
 import 'package:flutterx100/responsive_layout.dart';
@@ -29,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: TopBar(onFAQsTap),
+        appBar: TopBar(onLogoTap, onFAQsTap),
         body: ResponsiveLayout.isLargeScreen(context) ||
                 ResponsiveLayout.isMediumScreen(context)
             ? desktopBody
@@ -54,18 +53,27 @@ class _DashboardState extends State<Dashboard> {
         ],
       );
 
-  Widget get mobileBody => Stack(
+  Widget get mobileBody => PageView(
+        controller: pageController,
+        scrollDirection: Axis.vertical,
+        physics: new NeverScrollableScrollPhysics(),
         children: [
-          ListView(
-            controller: scrollController,
-            children: [Welcome(), Intro()],
+          Stack(
+            children: [
+              ListView(
+                controller: scrollController,
+                children: [Welcome(), Intro()],
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: BottomBar(onFAQsTap),
+              )
+            ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: BottomBar(),
-          )
+          FAQs(),
         ],
       );
 
+  void onLogoTap() => this.pageController.jumpToPage(0);
   void onFAQsTap() => this.pageController.jumpToPage(1);
 }
