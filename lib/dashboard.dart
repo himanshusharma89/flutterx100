@@ -39,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
 
   Widget get desktopBody => PageView(
         controller: pageController,
-        scrollDirection: Axis.vertical,
+        scrollDirection: Axis.horizontal,
         physics: NeverScrollableScrollPhysics(),
         children: [
           Scrollbar(
