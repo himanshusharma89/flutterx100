@@ -75,7 +75,7 @@ class FAQs extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
                 vertical: 30,
-                horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 300),
+                horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 200),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

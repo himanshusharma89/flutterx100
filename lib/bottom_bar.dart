@@ -87,7 +87,7 @@ class BottomBar extends StatelessWidget {
       @required Function onTap,
       @required Color color}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Center(
           child: MouseRegion(
         cursor: SystemMouseCursors.click,
