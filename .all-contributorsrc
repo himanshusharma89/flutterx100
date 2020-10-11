@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "HeyKos",
+      "name": "Mike Koser",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5178698?v=4",
+      "profile": "https://github.com/HeyKos",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "flutterx100",
+  "projectOwner": "himanshusharma89",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
