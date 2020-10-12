@@ -8,7 +8,7 @@ Table of contents
 <!--ts-->
    * [About #100DaysOfFlutter Challenge](#About)
    * [Rules](#Rules)
-   * [Officially Start the Challenge](#Officially Start the Challenge)
+   * [Officially Start the Challenge](https://github.com/AvinashMahanthi/flutterx100/blob/master/README.md#officially-start-the-challenge)
    * [Issues](#Issues)
    * [Code of Conduct](#code-of-conduct)
    * [License](#license)
