@@ -8,7 +8,7 @@ Table of contents
 <!--ts-->
    * [About #100DaysOfFlutter Challenge](#About)
    * [Rules](#Rules)
-   * [Offically start the challenge](# Officially Start the Challenge)
+   * [Officially Start the Challenge](#Officially Start the Challenge)
    * [Issues](#Issues)
    * [Code of Conduct](#code-of-conduct)
    * [License](#license)
