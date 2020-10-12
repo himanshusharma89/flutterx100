@@ -9,10 +9,10 @@ Table of contents
    * [About #100DaysOfFlutter Challenge](#About)
    * [Rules](#Rules)
    * [Offically start the challenge](#Officially Start the Challenge)
-   * [Getting Started](#getting-started)
    * [Issues](#Issues)
    * [Code of Conduct](#code-of-conduct)
    * [License](#license)
+   * [Getting Started](#getting-started)
    * [Contributors](#contributors)
 <!--te-->
 
@@ -28,6 +28,18 @@ Welcome to the **#100DaysOfFlutter Challenge!** Here you can learn the rules, ge
 
 Willing to start the challenge and share your journey? Click [here](https://twitter.com/intent/tweet?text=I%27m%20officially%20starting%20to%20the%20100DaysOfFlutter%20Challenge%20starting%20today!%20@100xFlutter&url=https://100daysofflutter.azurewebsites.net/&hashtags=100DaysOfFlutter) to tweet it to the world!
 
+## Issues
+
+Please file specific issues, bugs, or feature requests in our [issue tracker](https://github.com/himanshusharma89/flutterx100/issues). Follow the
+issue template provided while creating a new issue.
+
+## Code of Conduct
+We follow certain guidelines in order to maintain this repository.Please find our [code of conduct](https://github.com/himanshusharma89/flutterx100/blob/master/CODE_OF_CONDUCT.md) and read it carefully
+
+## License
+
+Distributed under the CC0-1.0 License.See `LICENSE` for more information.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
@@ -40,18 +52,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
-## Issues
-
-Please file specific issues, bugs, or feature requests in our [issue tracker](https://github.com/himanshusharma89/flutterx100/issues). Follow the
-issue template provided while creating a new issue.
-
-## Code of Conduct
-We follow certain guidelines in order to maintain this repository.Please find our [code of conduct](https://github.com/himanshusharma89/flutterx100/blob/master/CODE_OF_CONDUCT.md) and read it carefully
-
-## License
-
-Distributed under the CC0-1.0 License.See `LICENSE` for more information.
 
 ## Contributors ✨
 
