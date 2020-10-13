@@ -3,6 +3,20 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+Table of contents
+=================
+<!--ts-->
+   * [About #100DaysOfFlutter Challenge](#About)
+   * [Rules](#Rules)
+   * [Officially Start the Challenge](#officially-start-the-challenge)
+   * [Issues](#Issues)
+   * [Code of Conduct](#code-of-conduct)
+   * [License](#license)
+   * [Getting Started](#getting-started)
+   * [Contributors](#contributors)
+<!--te-->
+
+## About
 Welcome to the **#100DaysOfFlutter Challenge!** Here you can learn the rules, get answers to your questions by reading the FAQ, and find out more about the Flutter Community.
 
 ## Rules
@@ -13,6 +27,18 @@ Welcome to the **#100DaysOfFlutter Challenge!** Here you can learn the rules, ge
 ## Officially Start the Challenge
 
 Willing to start the challenge and share your journey? Click [here](https://twitter.com/intent/tweet?text=I%27m%20officially%20starting%20to%20the%20100DaysOfFlutter%20Challenge%20starting%20today!%20@100xFlutter&url=https://100daysofflutter.azurewebsites.net/&hashtags=100DaysOfFlutter) to tweet it to the world!
+
+## Issues
+
+Please file specific issues, bugs, or feature requests in our [issue tracker](https://github.com/himanshusharma89/flutterx100/issues). Follow the
+issue template provided while creating a new issue.
+
+## Code of Conduct
+We follow certain guidelines in order to maintain this repository.Please find our [code of conduct](https://github.com/himanshusharma89/flutterx100/blob/master/CODE_OF_CONDUCT.md) and read it carefully
+
+## License
+
+Distributed under the CC0-1.0 License. See `LICENSE` for more information.
 
 ## Getting Started
 
