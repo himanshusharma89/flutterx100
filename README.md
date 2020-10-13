@@ -8,7 +8,7 @@ Table of contents
 <!--ts-->
    * [About #100DaysOfFlutter Challenge](#About)
    * [Rules](#Rules)
-   * [Officially Start the Challenge](https://github.com/AvinashMahanthi/flutterx100/blob/master/README.md#officially-start-the-challenge)
+   * [Officially Start the Challenge](#officially-start-the-challenge)
    * [Issues](#Issues)
    * [Code of Conduct](#code-of-conduct)
    * [License](#license)
@@ -38,7 +38,7 @@ We follow certain guidelines in order to maintain this repository.Please find ou
 
 ## License
 
-Distributed under the CC0-1.0 License.See `LICENSE` for more information.
+Distributed under the CC0-1.0 License. See `LICENSE` for more information.
 
 ## Getting Started
 
