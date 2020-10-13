@@ -3,8 +3,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Table of contents
-=================
 <!--ts-->
    * [About #100DaysOfFlutter Challenge](#About)
    * [Rules](#Rules)
