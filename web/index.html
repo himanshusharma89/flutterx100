@@ -39,20 +39,12 @@
       https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
-
-  <script>
+  
+  <script src="./firebase-config.js"></script>
+  <script type="module">
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyDCTL-SE3n0e__caXryAyAZyegw0dy4obg",
-      authDomain: "flutterx100.firebaseapp.com",
-      databaseURL: "https://flutterx100.firebaseio.com",
-      projectId: "flutterx100",
-      storageBucket: "flutterx100.appspot.com",
-      messagingSenderId: "648461989474",
-      appId: "1:648461989474:web:91c35ad5a223ecba30833b",
-      measurementId: "G-YEQXPDBQYP"
-    };
+    import { firebaseConfig } from './firebase-config.js';
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
