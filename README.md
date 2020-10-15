@@ -17,6 +17,8 @@
 ## About
 Welcome to the **#100DaysOfFlutter Challenge!** Here you can learn the rules, get answers to your questions by reading the FAQ, and find out more about the Flutter Community.
 
+The flutter project for the **#100DaysOfFlutter Challenge**. This repo is maintained for Hacktoberfest also.
+
 ## Rules
 
 - Work on any Flutter technology for the next 100 Days.
