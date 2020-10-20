@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutterx100/launcher.dart';
@@ -56,6 +57,7 @@ class About extends StatelessWidget {
                 overflow: TextOverflow.fade,
                 style: TextStyle(
                   fontSize: 18,
+                  color: WebsiteColor.googleGray,
                 ),
               ),
             ),
@@ -93,11 +95,13 @@ class About extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
+                    color: WebsiteColor.googleGray,
+                    fontFamily: "Nunito Sans"
                   ),
                 ),
                 spacing(height),
                 Text(
-                  "More about the chalenge",
+                  "More about the challenge",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 22,
@@ -106,62 +110,52 @@ class About extends StatelessWidget {
                   ),
                 ),
                 spacing(height),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Check out the repository of this website on ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: WebsiteColor.googleGrayPrimary,
+                      fontWeight: FontWeight.normal
                     ),
-                    MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: GestureDetector(
-                        onTap: () {
-                          launcher.launchURL(
-                              "https://github.com/himanshusharma89/flutterx100");
-                        },
-                        child: Text(
-                          'Github',
-                          textAlign: TextAlign.center,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "Check out the repository of this website on ",
+                      ),
+                      TextSpan(
+                          text: "GitHub",
                           style: TextStyle(
-                            fontSize: 18,
                             decoration: TextDecoration.underline,
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              launcher.launchURL(
+                                  "https://github.com/himanshusharma89/flutterx100");
+                            }),
+                    ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'If you have any questions you may also want to have a look at our ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: WebsiteColor.googleGrayPrimary,
+                      fontWeight: FontWeight.normal
                     ),
-                    MouseRegion(
-                      //cursor: SystemMouseCursors.click,
-                      child: GestureDetector(
-                        onTap: () {
-                          // Navigate to FAQ page
-                        },
-                        child: Text(
-                          'FAQ',
-                          textAlign: TextAlign.center,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "If you have any questions you may also want to have a look at our ",
+                      ),
+                      TextSpan(
+                          text: "FAQ",
                           style: TextStyle(
-                            fontSize: 18,
-                            // decoration: TextDecoration.underline,
+                            decoration: TextDecoration.underline,
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                             // Navigate to FAQ page
+                            }),
+                    ],
+                  ),
                 ),
                 spacing(height),
                 Text(
