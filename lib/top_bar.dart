@@ -11,6 +11,7 @@ final Launcher launcher = Launcher();
 class TopBar extends StatelessWidget with PreferredSizeWidget {
   VoidCallback _onLogoTap;
   VoidCallback _onFAQsTap;
+  VoidCallback _onAboutTap;
 
   List socialPlatforms = [
     {
@@ -23,7 +24,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
     },
   ];
 
-  TopBar(this._onLogoTap, this._onFAQsTap);
+  TopBar(this._onLogoTap, this._onFAQsTap, this._onAboutTap);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 10);
@@ -78,14 +79,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    topBarItem(
-                        title: 'About',
-                        onTap: () {
-                          Scaffold.of(context).showSnackBar(SnackBar(
-                            content: Text('This site is currently being built'),
-                            duration: Duration(milliseconds: 4000),
-                          ));
-                        }),
+                    topBarItem(title: 'About', onTap: this._onAboutTap),
                     topBarItem(title: 'FAQs', onTap: this._onFAQsTap),
                     topBarItem(
                         title: 'Community',

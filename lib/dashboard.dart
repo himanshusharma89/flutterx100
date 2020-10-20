@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx100/bottom_bar.dart';
 import 'package:flutterx100/responsive_layout.dart';
+import 'package:flutterx100/screens/about.dart';
 import 'package:flutterx100/screens/intro.dart';
 import 'package:flutterx100/screens/welcome.dart';
 
@@ -28,7 +29,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: TopBar(onLogoTap, onFAQsTap),
+        appBar: TopBar(onLogoTap, onFAQsTap, onAboutTap),
         body: ResponsiveLayout.isLargeScreen(context) ||
                 ResponsiveLayout.isMediumScreen(context)
             ? desktopBody
@@ -50,6 +51,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           FAQs(),
+          About(),
         ],
       );
 
@@ -65,10 +67,11 @@ class _DashboardState extends State<Dashboard> {
                   children: [Welcome(), Intro()],
                 ),
                 FAQs(),
+                About(),
               ]),
           Align(
             alignment: Alignment.bottomCenter,
-            child: BottomBar(onFAQsTap),
+            child: BottomBar(onFAQsTap, onAboutTap),
           )
         ],
       );
@@ -76,5 +79,7 @@ class _DashboardState extends State<Dashboard> {
   void onLogoTap() => this.pageController.animateToPage(0,
       duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
   void onFAQsTap() => this.pageController.animateToPage(1,
+      duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+  void onAboutTap() => this.pageController.animateToPage(2,
       duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
 }

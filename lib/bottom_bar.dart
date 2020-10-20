@@ -8,6 +8,7 @@ final Launcher launcher = Launcher();
 // ignore: must_be_immutable
 class BottomBar extends StatelessWidget {
   VoidCallback _onFAQsTap;
+  VoidCallback _onAboutTap;
 
   List socialPlatforms = [
     {
@@ -20,7 +21,7 @@ class BottomBar extends StatelessWidget {
     },
   ];
 
-  BottomBar(this._onFAQsTap);
+  BottomBar(this._onFAQsTap, this._onAboutTap);
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +31,7 @@ class BottomBar extends StatelessWidget {
       child: Row(
         children: [
           bottomBarItem(
-              title: 'About',
-              onTap: () {
-                Scaffold.of(context).showSnackBar(SnackBar(
-                  content: Text('This site is currently being built'),
-                  duration: Duration(milliseconds: 4000),
-                ));
-              },
-              color: Colors.white),
+              title: 'About', onTap: this._onAboutTap, color: Colors.white),
           bottomBarItem(
               title: 'FAQs', onTap: this._onFAQsTap, color: Colors.white),
           bottomBarItem(
