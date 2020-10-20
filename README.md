@@ -1,6 +1,6 @@
 # flutterx100
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!--ts-->
@@ -64,6 +64,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/HeyKos"><img src="https://avatars0.githubusercontent.com/u/5178698?v=4" width="100px;" alt=""/><br /><sub><b>Mike Koser</b></sub></a><br /><a href="https://github.com/himanshusharma89/flutterx100/commits?author=HeyKos" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/AvinashMahanthi"><img src="https://avatars0.githubusercontent.com/u/54079190?v=4" width="100px;" alt=""/><br /><sub><b>Avinash Mahanthi</b></sub></a><br /><a href="https://github.com/himanshusharma89/flutterx100/commits?author=AvinashMahanthi" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/ecrax"><img src="https://avatars2.githubusercontent.com/u/53916931?v=4" width="100px;" alt=""/><br /><sub><b>Leo Kling</b></sub></a><br /><a href="https://github.com/himanshusharma89/flutterx100/commits?author=ecrax" title="Code">💻</a></td>
   </tr>
 </table>
 
