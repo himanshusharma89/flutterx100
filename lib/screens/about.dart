@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutterx100/launcher.dart';
 import 'package:flutterx100/responsive_layout.dart';
 import 'package:flutterx100/website_color.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final Launcher launcher = Launcher();
 
@@ -96,7 +97,6 @@ class About extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: WebsiteColor.googleGray,
-                    fontFamily: "Nunito Sans"
                   ),
                 ),
                 spacing(height),
@@ -112,10 +112,10 @@ class About extends StatelessWidget {
                 spacing(height),
                 RichText(
                   text: TextSpan(
-                    style: TextStyle(
+                    style: GoogleFonts.nunitoSans(
                       fontSize: 18,
-                      color: WebsiteColor.googleGrayPrimary,
-                      fontWeight: FontWeight.normal
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
                     ),
                     children: <TextSpan>[
                       TextSpan(
@@ -136,14 +136,15 @@ class About extends StatelessWidget {
                 ),
                 RichText(
                   text: TextSpan(
-                    style: TextStyle(
+                    style: GoogleFonts.nunitoSans(
                       fontSize: 18,
-                      color: WebsiteColor.googleGrayPrimary,
-                      fontWeight: FontWeight.normal
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: "If you have any questions you may also want to have a look at our ",
+                        text:
+                            "If you have any questions you may also want to have a look at our ",
                       ),
                       TextSpan(
                           text: "FAQ",
@@ -152,7 +153,7 @@ class About extends StatelessWidget {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                             // Navigate to FAQ page
+                              // Navigate to FAQ page
                             }),
                     ],
                   ),
