@@ -71,7 +71,7 @@ class _DashboardState extends State<Dashboard> {
               ]),
           Align(
             alignment: Alignment.bottomCenter,
-            child: BottomBar(onFAQsTap),
+            child: BottomBar(onFAQsTap, onAboutTap),
           )
         ],
       );
