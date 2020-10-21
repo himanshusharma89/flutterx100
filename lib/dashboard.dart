@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx100/bottom_bar.dart';
-import 'package:flutterx100/responsive_layout.dart';
+import 'package:flutterx100/navigation/bottom_bar.dart';
+import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/screens/about.dart';
-import 'package:flutterx100/screens/intro.dart';
-import 'package:flutterx100/screens/welcome.dart';
+import 'package:flutterx100/screens/home/home.dart';
 
 import 'screens/faqs.dart';
-import 'top_bar.dart';
+import 'navigation/top_bar.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -15,13 +14,14 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   ScrollController scrollController;
-  PageController pageController = PageController(
-    initialPage: 0,
-  );
+  Widget bodyWidget;
 
   @override
   void initState() {
     scrollController = ScrollController();
+    bodyWidget = Home(
+      scrollController: scrollController,
+    );
     super.initState();
   }
 
@@ -38,37 +38,11 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 
-  Widget get desktopBody => PageView(
-        controller: pageController,
-        scrollDirection: Axis.horizontal,
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          Scrollbar(
-            controller: scrollController,
-            child: ListView(
-              controller: scrollController,
-              children: [Welcome(), Intro()],
-            ),
-          ),
-          FAQs(),
-          About(),
-        ],
-      );
+  Widget get desktopBody => bodyWidget;
 
   Widget get mobileBody => Stack(
         children: [
-          PageView(
-              controller: pageController,
-              scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-                ListView(
-                  controller: scrollController,
-                  children: [Welcome(), Intro()],
-                ),
-                FAQs(),
-                About(),
-              ]),
+          bodyWidget,
           Align(
             alignment: Alignment.bottomCenter,
             child: BottomBar(onFAQsTap, onAboutTap),
@@ -76,10 +50,23 @@ class _DashboardState extends State<Dashboard> {
         ],
       );
 
-  void onLogoTap() => this.pageController.animateToPage(0,
-      duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
-  void onFAQsTap() => this.pageController.animateToPage(1,
-      duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
-  void onAboutTap() => this.pageController.animateToPage(2,
-      duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+  void onLogoTap() {
+    setState(() {
+      bodyWidget = Home(
+        scrollController: scrollController,
+      );
+    });
+  }
+
+  void onFAQsTap() {
+    setState(() {
+      bodyWidget = FAQs();
+    });
+  }
+
+  void onAboutTap() {
+    setState(() {
+      bodyWidget = About();
+    });
+  }
 }

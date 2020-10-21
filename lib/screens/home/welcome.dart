@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx100/responsive_layout.dart';
+import 'package:flutterx100/helpers/responsive_layout.dart';
 
-import '../website_color.dart';
+import '../../helpers/website_color.dart';
 
 class Welcome extends StatelessWidget {
   @override

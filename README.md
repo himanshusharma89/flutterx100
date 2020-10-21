@@ -10,8 +10,9 @@
    * [Issues](#Issues)
    * [Code of Conduct](#code-of-conduct)
    * [License](#license)
+   * [Developer](#developer-✨)
+   * [Contributors](#contributors-✨)
    * [Getting Started](#getting-started)
-   * [Contributors](#contributors)
 <!--te-->
 
 ## About
@@ -40,18 +41,15 @@ We follow certain guidelines in order to maintain this repository.Please find ou
 
 Distributed under the CC0-1.0 License. See `LICENSE` for more information.
 
-## Getting Started
+## Developer ✨
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/himanshusharma89"><img src="https://avatars0.githubusercontent.com/u/44980497?v=4" width="200px;" alt=""/><br /><sub><b>Himanshu Sharma</b></sub></a><br />
+    <!-- <a href="https://github.com/himanshusharma89" title="Code">💻</a> -->
+    </td>
+  </tr>
+</table>
 
 ## Contributors ✨
 
@@ -73,3 +71,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

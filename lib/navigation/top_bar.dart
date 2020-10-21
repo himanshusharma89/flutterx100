@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterx100/responsive_layout.dart';
-import 'package:flutterx100/website_color.dart';
+import 'package:flutterx100/helpers/responsive_layout.dart';
+import 'package:flutterx100/helpers/website_color.dart';
 
-import 'launcher.dart';
+import '../helpers/launcher.dart';
 
 final Launcher launcher = Launcher();
 

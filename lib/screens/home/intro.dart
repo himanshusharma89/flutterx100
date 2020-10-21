@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx100/launcher.dart';
-import 'package:flutterx100/responsive_layout.dart';
+import 'package:flutterx100/helpers/launcher.dart';
+import 'package:flutterx100/helpers/responsive_layout.dart';
 
-import '../website_color.dart';
+import '../../helpers/website_color.dart';
 
 final Launcher launcher = Launcher();
 
@@ -83,9 +83,10 @@ class Intro extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: height * 0.1,
-          ),
+          if (ResponsiveLayout.isSmallScreen(context))
+            SizedBox(
+              height: height * 0.1,
+            ),
         ],
       ),
     );
