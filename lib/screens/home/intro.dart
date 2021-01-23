@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx100/helpers/launcher.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
+import 'package:flutterx100/widgets/constants.dart';
 
 import '../../helpers/website_color.dart';
-
-final Launcher launcher = Launcher();
 
 // ignore: must_be_immutable
 class Intro extends StatelessWidget {
@@ -18,14 +16,15 @@ class Intro extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Padding(
       padding: EdgeInsets.symmetric(
-          vertical: 30,
-          horizontal: ResponsiveLayout.isSmallScreen(context) ? 60 : 100),
+          horizontal: ResponsiveLayout.isSmallScreen(context) ? 20 : 40),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: ResponsiveLayout.isSmallScreen(context)
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Welcome to the #100DaysOfFlutter Challenge! Here you can learn the rules, get answers to your questions by reading the FAQ, and find out more about the Flutter Community',
-            textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20,
             ),
@@ -40,7 +39,6 @@ class Intro extends StatelessWidget {
           for (int i = 0; i < rules.length; i++)
             Text(
               '${i + 1}. ' + rules[i],
-              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18),
             ),
           SizedBox(
@@ -52,7 +50,6 @@ class Intro extends StatelessWidget {
           ),
           Text(
             'Willing to start the challenge and share your journey? Click below to tweet it to the world!',
-            textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18),
           ),
           SizedBox(
@@ -83,10 +80,6 @@ class Intro extends StatelessWidget {
               ),
             ),
           ),
-          if (ResponsiveLayout.isSmallScreen(context))
-            SizedBox(
-              height: height * 0.1,
-            ),
         ],
       ),
     );

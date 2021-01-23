@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx100/navigation/bottom_bar.dart';
+import 'package:flutterx100/widgets/bottom_bar.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/screens/about.dart';
 import 'package:flutterx100/screens/home/home.dart';
+import 'package:flutterx100/widgets/constants.dart';
 
 import 'screens/faqs.dart';
-import 'navigation/top_bar.dart';
+import 'widgets/top_bar.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -13,15 +14,14 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  ScrollController scrollController;
-  Widget bodyWidget;
+  ScrollController desktopController, mobileController;
+  List<Widget> pageList;
 
   @override
   void initState() {
-    scrollController = ScrollController();
-    bodyWidget = Home(
-      scrollController: scrollController,
-    );
+    desktopController = ScrollController();
+    mobileController = ScrollController();
+    pageList = [Home(), About(), FAQs()];
     super.initState();
   }
 
@@ -29,44 +29,40 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: TopBar(onLogoTap, onFAQsTap, onAboutTap),
-        body: ResponsiveLayout.isLargeScreen(context) ||
-                ResponsiveLayout.isMediumScreen(context)
-            ? desktopBody
-            : mobileBody,
+        appBar: TopBar(desktopController),
+        body: Stack(
+          children: [
+            Scrollbar(
+              controller: ResponsiveLayout.isSmallScreen(context)
+                  ? mobileController
+                  : desktopController,
+              child: ResponsiveLayout.isLargeScreen(context) ||
+                      ResponsiveLayout.isMediumScreen(context)
+                  ? desktopBody
+                  : mobileBody,
+            ),
+            if (ResponsiveLayout.isSmallScreen(context))
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: BottomBar(mobileController),
+              )
+          ],
+        ),
       ),
     );
   }
 
-  Widget get desktopBody => bodyWidget;
-
-  Widget get mobileBody => Stack(
-        children: [
-          bodyWidget,
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: BottomBar(onFAQsTap, onAboutTap),
-          )
-        ],
+  Widget get desktopBody => ListView(
+        controller: desktopController,
+        physics: ClampingScrollPhysics(),
+        children: pageList,
       );
 
-  void onLogoTap() {
-    setState(() {
-      bodyWidget = Home(
-        scrollController: scrollController,
-      );
-    });
-  }
-
-  void onFAQsTap() {
-    setState(() {
-      bodyWidget = FAQs();
-    });
-  }
-
-  void onAboutTap() {
-    setState(() {
-      bodyWidget = About();
-    });
-  }
+  Widget get mobileBody => Container(
+    margin: const EdgeInsets.only(bottom: BOTTOM_BAR_HEIGHT,),
+    child: ListView(
+          controller: mobileController,
+          children: pageList,
+        ),
+  );
 }

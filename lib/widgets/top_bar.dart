@@ -2,32 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/helpers/website_color.dart';
+import 'package:flutterx100/widgets/navigation_bar_item.dart';
 
-import '../helpers/launcher.dart';
+import 'constants.dart';
 
-final Launcher launcher = Launcher();
 
 // ignore: must_be_immutable
 class TopBar extends StatelessWidget with PreferredSizeWidget {
-  VoidCallback _onLogoTap;
-  VoidCallback _onFAQsTap;
-  VoidCallback _onAboutTap;
-
-  List socialPlatforms = [
-    {
-      'URL': 'https://github.com/himanshusharma89/flutterx100',
-      'iconURL': 'https://img.icons8.com/fluent/50/000000/github.png'
-    },
-    {
-      'URL': 'https://twitter.com/100xFlutter',
-      'iconURL': 'https://img.icons8.com/color/48/000000/twitter.png'
-    },
-  ];
-
-  TopBar(this._onLogoTap, this._onFAQsTap, this._onAboutTap);
+  ScrollController controller;
+  TopBar(this.controller);
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 10);
+  Size get preferredSize => const Size.fromHeight(TOP_BAR_HEIGHT);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +36,9 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
               MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: this._onLogoTap,
+                  onTap: () => controller.animateTo(0,
+                      duration: Duration(milliseconds: 600),
+                      curve: Curves.ease),
                   child: Row(
                     children: [
                       Padding(
@@ -79,12 +67,22 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    topBarItem(title: 'About', onTap: this._onAboutTap),
-                    topBarItem(title: 'FAQs', onTap: this._onFAQsTap),
-                    topBarItem(
+                    NavigationBarItem(
+                        title: 'About',
+                        onTap: () => controller.animateTo(
+                            1 * screenHeight(context),
+                            duration: Duration(milliseconds: 600),
+                            curve: Curves.ease)),
+                    NavigationBarItem(
+                        title: 'FAQs',
+                        onTap: () => controller.animateTo(
+                            2 * screenHeight(context),
+                            duration: Duration(milliseconds: 600),
+                            curve: Curves.ease)),
+                    NavigationBarItem(
                         title: 'Community',
                         onTap: () {
-                          Scaffold.of(context).showSnackBar(SnackBar(
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text('This site is currently being built'),
                             duration: Duration(milliseconds: 4000),
                           ));
@@ -145,23 +143,6 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget topBarItem({@required String title, @required Function onTap}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Center(
-          child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          onTap: onTap,
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-          ),
-        ),
-      )),
     );
   }
 }

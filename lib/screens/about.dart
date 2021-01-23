@@ -1,47 +1,59 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterx100/helpers/launcher.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/helpers/website_color.dart';
+import 'package:flutterx100/widgets/constants.dart';
+import 'package:flutterx100/widgets/screen_title.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final Launcher launcher = Launcher();
-
-// ignore: must_be_immutable
 class About extends StatelessWidget {
-  About({Key key}) : super(key: key);
-
-  final ScrollController _scrollController = ScrollController();
-
-  List<String> _benefits = [
-    "Coding will become a daily habit for you — a habit that you can easily maintain after you’ve finished the challenge.",
-    "Every day that you consistently code, you’ll build momentum. That momentum will make it easier for you to learn more advanced topics. You won’t have to spend extra time trying to remember what you did previously. You can stay in the “flow” of coding.",
-    "You will learn to use many packages to expand the functionality of Flutter.",
-    "You’ll make friends and meet like-minded people who are also working through this challenge alongside you. They’ll help you find the strength to keep coding even on the days when you don’t feel like you’re making progress. They can also help you when you inevitably get stuck.",
-    "The projects that you’ll build will be small in scope, so by the time you finish, you’ll have completed several of them — and gained a wide range of experience.",
-    "If you were just working through tutorials, you wouldn’t have much to show for it. But with #100DaysOfFlutter, you’ll build real portfolio projects that you can show to potential employers and share with your family and friends.",
-    "These projects will give you practice with concepts that frequently come up during developer job interviews.",
-    "Your GitHub profile will look extremely active. And yes, hiring managers and recruiters do look at these.",
-    "You’ll greatly diminish your fear of starting a new coding project. It will become a natural, ordinary thing to do.",
-    "You’ll have a good reason to stop procrastinating and start coding every day.",
-  ];
-
-  List<Widget> getBenefits() {
+  final ScrollController scrollController = ScrollController();
+  Widget getBenefits(BuildContext context) {
     List<Widget> benefitWidgets = List<Widget>();
 
-    for (String benefit in _benefits) {
+    for (String benefit in benefits) {
       benefitWidgets.add(getBenefit(benefit));
     }
 
-    return benefitWidgets;
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 1),
+                color: WebsiteColor.googleGraySecondary,
+                blurRadius: 5)
+          ]),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Scrollbar(
+          controller: scrollController,
+          isAlwaysShown: true,
+          thickness: 2,
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            itemCount: benefitWidgets.length,
+            primary: false,
+            shrinkWrap: true,
+            physics: !ResponsiveLayout.isSmallScreen(context)
+                ? NeverScrollableScrollPhysics()
+                : null,
+            controller: scrollController,
+            itemBuilder: (context, index) => benefitWidgets[index],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget getBenefit(String benefit) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.ideographic,
         children: [
           Icon(
             Icons.circle,
@@ -57,7 +69,7 @@ class About extends StatelessWidget {
                 textAlign: TextAlign.left,
                 overflow: TextOverflow.fade,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   color: WebsiteColor.googleGray,
                 ),
               ),
@@ -77,102 +89,88 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return Scrollbar(
-      controller: _scrollController,
-      isAlwaysShown: true,
-      child: ListView(
-        shrinkWrap: false,
-        controller: _scrollController,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: 30,
-                horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 200),
-            child: Column(
-              children: [
-                Text(
-                  'About',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: WebsiteColor.googleGray,
-                  ),
-                ),
-                spacing(height),
-                Text(
-                  "More about the challenge",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: WebsiteColor.googleGrayPrimary,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                spacing(height),
-                RichText(
-                  text: TextSpan(
-                    style: GoogleFonts.nunitoSans(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: "Check out the repository of this website on ",
-                      ),
-                      TextSpan(
-                          text: "GitHub",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launcher.launchURL(
-                                  "https://github.com/himanshusharma89/flutterx100");
-                            }),
-                    ],
-                  ),
-                ),
-                RichText(
-                  text: TextSpan(
-                    style: GoogleFonts.nunitoSans(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text:
-                            "If you have any questions you may also want to have a look at our ",
-                      ),
-                      TextSpan(
-                          text: "FAQ",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              // Navigate to FAQ page
-                            }),
-                    ],
-                  ),
-                ),
-                spacing(height),
-                Text(
-                  "Benefits: What the #100DaysOfFlutter Challenge can do for you",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: WebsiteColor.googleGrayPrimary,
-                  ),
-                ),
-                ...getBenefits(),
-              ],
+    return Container(
+      height: screenHeight(context),
+      width: double.infinity,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: 30,
+            horizontal: ResponsiveLayout.isSmallScreen(context) ? 25 : 190),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ScreenTitle(titleText: 'About'),
+            Text(
+              "More about the challenge",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18,
+                color: WebsiteColor.googleGrayPrimary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          )
-        ],
+            spacing(height),
+            RichText(
+              text: TextSpan(
+                style: GoogleFonts.nunitoSans(
+                  fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: "Check out the repository of this website on ",
+                  ),
+                  TextSpan(
+                      text: "GitHub",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          launcher.launchURL(
+                              "https://github.com/himanshusharma89/flutterx100");
+                        }),
+                ],
+              ),
+            ),
+            RichText(
+              text: TextSpan(
+                style: GoogleFonts.nunitoSans(
+                  fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text:
+                        "If you have any questions you may also want to have a look at our ",
+                  ),
+                  TextSpan(
+                      text: "FAQ",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Navigate to FAQ page
+                        }),
+                ],
+              ),
+            ),
+            Text(
+              "Benefits: What the #100DaysOfFlutter Challenge can do for you",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 22,
+                fontWeight: FontWeight.bold,
+                color: WebsiteColor.googleGrayPrimary,
+              ),
+            ),
+            spacing(height),
+            Flexible(flex: 4, fit: FlexFit.loose, child: getBenefits(context)),
+          ],
+        ),
       ),
     );
   }
