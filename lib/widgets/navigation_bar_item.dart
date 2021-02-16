@@ -3,10 +3,12 @@ import 'package:flutter/rendering.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 
 class NavigationBarItem extends StatelessWidget {
+  const NavigationBarItem(
+      {@required this.title, @required this.onTap, this.color});
   final String title;
-  final Function onTap;
+  final Function() onTap;
   final Color color;
-  NavigationBarItem({@required this.title, @required this.onTap, this.color});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

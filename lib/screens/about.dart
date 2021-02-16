@@ -10,9 +10,9 @@ import 'package:google_fonts/google_fonts.dart';
 class About extends StatelessWidget {
   final ScrollController scrollController = ScrollController();
   Widget getBenefits(BuildContext context) {
-    List<Widget> benefitWidgets = [];
+    final List<Widget> benefitWidgets = <Widget>[];
 
-    for (String benefit in benefits) {
+    for (final String benefit in benefits) {
       benefitWidgets.add(getBenefit(benefit));
     }
 
@@ -25,24 +25,22 @@ class About extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.ideographic,
-        children: [
-          Icon(
+        children: <Widget>[
+          const Icon(
             Icons.circle,
             size: 8,
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
-          Container(
-            child: Flexible(
-              child: Text(
-                benefit,
-                textAlign: TextAlign.left,
-                overflow: TextOverflow.fade,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: WebsiteColor.googleGray,
-                ),
+          Flexible(
+            child: Text(
+              benefit,
+              textAlign: TextAlign.left,
+              overflow: TextOverflow.fade,
+              style: const TextStyle(
+                fontSize: 15,
+                color: WebsiteColor.googleGray,
               ),
             ),
           ),
@@ -53,18 +51,18 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    return Container(
+    final double height = MediaQuery.of(context).size.height;
+    return SizedBox(
       height: screenHeight(context),
       width: double.infinity,
       child: padding(
         context,
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            ScreenTitle(titleText: 'About'),
-            Text(
-              "More about the challenge",
+          children: <Widget>[
+            const ScreenTitle(titleText: 'About'),
+            const Text(
+              'More about the challenge',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
@@ -83,18 +81,18 @@ class About extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                 ),
                 children: <TextSpan>[
-                  TextSpan(
-                    text: "Check out the repository of this website on ",
+                  const TextSpan(
+                    text: 'Check out the repository of this website on ',
                   ),
                   TextSpan(
-                      text: "GitHub",
-                      style: TextStyle(
+                      text: 'GitHub',
+                      style: const TextStyle(
                         decoration: TextDecoration.underline,
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           launcher.launchURL(
-                              "https://github.com/himanshusharma89/flutterx100");
+                              'https://github.com/himanshusharma89/flutterx100');
                         }),
                 ],
               ),
@@ -108,13 +106,13 @@ class About extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                 ),
                 children: <TextSpan>[
-                  TextSpan(
+                  const TextSpan(
                     text:
-                        "If you have any questions you may also want to have a look at our ",
+                        'If you have any questions you may also want to have a look at our ',
                   ),
                   TextSpan(
-                      text: "FAQ",
-                      style: TextStyle(
+                      text: 'FAQ',
+                      style: const TextStyle(
                         decoration: TextDecoration.underline,
                       ),
                       recognizer: TapGestureRecognizer()
@@ -125,7 +123,7 @@ class About extends StatelessWidget {
               ),
             ),
             Text(
-              "Benefits: What the #100DaysOfFlutter Challenge can do for you",
+              'Benefits: What the #100DaysOfFlutter Challenge can do for you',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 18,

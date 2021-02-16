@@ -7,63 +7,63 @@ import '../helpers/constants.dart';
 
 // ignore: must_be_immutable
 class BottomBar extends StatelessWidget {
-  ScrollController controller;
   BottomBar(this.controller);
+  ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: BOTTOM_BAR_HEIGHT,
+      height: bottomVarHeight,
       width: double.infinity,
       color: WebsiteColor.googleGray,
       alignment: Alignment.bottomCenter,
       child: FittedBox(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: <Widget>[
             FittedBox(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   NavigationBarItem(
                       title: 'About',
-                      onTap: () => controller.animateTo(1 * screenHeight(context),
-                          duration: Duration(milliseconds: 600),
+                      onTap: () => controller.animateTo(
+                          1 * screenHeight(context),
+                          duration: const Duration(milliseconds: 600),
                           curve: Curves.ease),
                       color: Colors.white),
                   NavigationBarItem(
                       title: 'FAQs',
-                      onTap: () => controller.animateTo(2 * screenHeight(context),
-                          duration: Duration(milliseconds: 600),
+                      onTap: () => controller.animateTo(
+                          2 * screenHeight(context),
+                          duration: const Duration(milliseconds: 600),
                           curve: Curves.ease),
                       color: Colors.white),
                   NavigationBarItem(
                       title: 'Community',
                       onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text('This site is currently being built'),
-                          duration: Duration(milliseconds: 4000),
                         ));
                       },
                       color: Colors.white),
                   for (int i = 0; i < socialPlatforms.length; i++)
                     Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 5),
                       child: Material(
                         color: WebsiteColor.googleGray,
                         child: InkWell(
+                            onTap: () {
+                              launcher.launchURL(socialPlatforms[i]['URL']);
+                            },
                             child: SizedBox(
                               height: 30,
                               width: 30,
                               child: FadeInImage(
-                                  placeholder: AssetImage('assets/Blocks.gif'),
-                                  image:
-                                      NetworkImage(socialPlatforms[i]['iconURL'])),
-                            ),
-                            onTap: () {
-                              launcher.launchURL(socialPlatforms[i]['URL']);
-                            }),
+                                  placeholder: const AssetImage('assets/Blocks.gif'),
+                                  image: NetworkImage(
+                                      socialPlatforms[i]['iconURL'])),
+                            ),),
                       ),
                     ),
                 ],

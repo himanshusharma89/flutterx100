@@ -3,8 +3,9 @@ import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/helpers/website_color.dart';
 
 class ScreenTitle extends StatelessWidget {
+  const ScreenTitle({@required this.titleText});
   final String titleText;
-  ScreenTitle({@required this.titleText});
+
   @override
   Widget build(BuildContext context) {
     return Text(

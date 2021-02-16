@@ -8,12 +8,12 @@ import 'intro.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: screenHeight(context),
       width: double.infinity,
       child: Stack(
         fit: StackFit.expand,
-        children: [
+        children: <Widget>[
           FractionallySizedBox(
               widthFactor: ResponsiveLayout.isSmallScreen(context) ? 0 : 0.5,
               alignment: Alignment.centerRight,

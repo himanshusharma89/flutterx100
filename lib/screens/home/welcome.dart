@@ -10,7 +10,7 @@ class Welcome extends StatelessWidget {
       padding: const EdgeInsets.only(right:20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           FittedBox(
             child: Text(
               '#100DaysOfFlutter',

@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx100/helpers/constants.dart';
 import 'package:flutterx100/helpers/website_color.dart';
-import 'package:flutterx100/helpers/constants.dart';
 import 'package:flutterx100/widgets/screen_title.dart';
 
 class FAQs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    return Container(
+    final double height = MediaQuery.of(context).size.height;
+    return SizedBox(
       height: screenHeight(context),
       width: double.infinity,
       child: padding(
         context,
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            ScreenTitle(titleText: 'Frequently Asked Questions'),
+          children: <Widget>[
+            const ScreenTitle(titleText: 'Frequently Asked Questions'),
             spacing(height),
             cardView(getFAQs())
           ],
@@ -27,13 +26,13 @@ class FAQs extends StatelessWidget {
 
   List<Widget> getFAQs() => faqs.map((e) => getFAQ(e)).toList();
 
-  Widget getFAQ(dynamic faq) {
+  Widget getFAQ(FAQ faq) {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
+        children: <Widget>[
           Theme(
             data: ThemeData(
               dividerColor: Colors.transparent,
@@ -43,21 +42,21 @@ class FAQs extends StatelessWidget {
               collapsedBackgroundColor: Colors.transparent,
               expandedAlignment: Alignment.centerLeft,
               backgroundColor: Colors.transparent,
-              tilePadding: EdgeInsets.symmetric(horizontal: 12.0),
-              childrenPadding: EdgeInsets.symmetric(horizontal: 12.0),
+              tilePadding: const EdgeInsets.symmetric(horizontal: 12.0),
+              childrenPadding: const EdgeInsets.symmetric(horizontal: 12.0),
               title: Text(
-                "Q: ${faq['question']}",
+                "Q: ${faq.question}",
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 15,
                   color: WebsiteColor.googleGray,
                 ),
               ),
-              children: [
+              children: <Widget>[
                 Text(
-                  "A: ${faq['answer']}.",
+                  "A: ${faq.answer}.",
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15,
                     color: WebsiteColor.googleGray,
                   ),
@@ -66,7 +65,7 @@ class FAQs extends StatelessWidget {
             ),
           ),
           if (faqs.indexOf(faq) != faqs.length - 1)
-            Divider(
+            const Divider(
               color: Colors.black26,
               thickness: 1,
               height: 0.5,

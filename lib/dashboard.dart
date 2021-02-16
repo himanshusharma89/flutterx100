@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     desktopController = ScrollController();
     mobileController = ScrollController();
-    pageList = [Home(), About(), FAQs()];
+    pageList = <Widget>[Home(), About(), FAQs()];
     super.initState();
   }
 
@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
       child: Scaffold(
         appBar: TopBar(desktopController),
         body: Stack(
-          children: [
+          children: <Widget>[
             Scrollbar(
               controller: ResponsiveLayout.isSmallScreen(context)
                   ? mobileController
@@ -59,7 +59,7 @@ class _DashboardState extends State<Dashboard> {
       );
 
   Widget get mobileBody => Container(
-    margin: const EdgeInsets.only(bottom: BOTTOM_BAR_HEIGHT,),
+    margin: const EdgeInsets.only(bottom: bottomVarHeight,),
     child: ListView(
           controller: mobileController,
           children: pageList,

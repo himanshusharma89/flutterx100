@@ -5,9 +5,10 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget mediumScreen;
   final Widget smallScreen;
 
+  // ignore: sort_constructors_first
   const ResponsiveLayout(
-      {Key key,
-      @required this.largeScreen,
+      {@required this.largeScreen,
+      Key key,
       this.mediumScreen,
       this.smallScreen})
       : super(key: key);
@@ -28,10 +29,10 @@ class ResponsiveLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) {
+      builder: (_, BoxConstraints constraints) {
         if (constraints.maxWidth >= 1060) {
           return largeScreen;
-        } else if (constraints.maxWidth < 1060 && constraints.maxWidth >= 780) {
+        } else if (constraints.maxWidth >= 780) {
           return mediumScreen ?? largeScreen;
         } else {
           return smallScreen ?? largeScreen;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Launcher {
-  launchURL(String url) async {
+  Future<void> launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
