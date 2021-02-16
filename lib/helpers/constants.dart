@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx100/helpers/launcher.dart';
+import 'package:flutterx100/helpers/responsive_layout.dart';
+import 'package:flutterx100/helpers/website_color.dart';
 
 final Launcher launcher = Launcher();
 
@@ -8,6 +10,52 @@ const double BOTTOM_BAR_HEIGHT = 35;
 
 double screenHeight(BuildContext context) =>
     MediaQuery.of(context).size.height - TOP_BAR_HEIGHT;
+
+Widget spacing(double height) {
+  return SizedBox(
+    height: height * 0.02,
+  );
+}
+
+Widget padding(BuildContext context, {Widget child}) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+        vertical: 30,
+        horizontal: ResponsiveLayout.isSmallScreen(context) ? 25 : 40),
+    child: child,
+  );
+}
+
+Widget cardView(List list) {
+  return Flexible(
+      flex: 4,
+      fit: FlexFit.loose,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 1),
+                  color: WebsiteColor.googleGraySecondary,
+                  blurRadius: 5)
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            itemCount: list.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) => list[index],
+          ),
+        ),
+      ));
+}
+
+List rules = [
+  'Work on any Flutter technology for the next 100 Days.',
+  'Share your progress everyday to the Flutter Community with the #100DaysOfFlutter hashtag.'
+];
 
 const List socialPlatforms = [
   {

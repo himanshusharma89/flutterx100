@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx100/helpers/responsive_layout.dart';
+import 'package:flutterx100/helpers/constants.dart';
 import 'package:flutterx100/helpers/website_color.dart';
-import 'package:flutterx100/widgets/constants.dart';
+import 'package:flutterx100/helpers/constants.dart';
 import 'package:flutterx100/widgets/screen_title.dart';
 
 class FAQs extends StatelessWidget {
@@ -11,27 +11,16 @@ class FAQs extends StatelessWidget {
     return Container(
       height: screenHeight(context),
       width: double.infinity,
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: 30,
-                horizontal: ResponsiveLayout.isSmallScreen(context) ? 30 : 200),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ScreenTitle(titleText: 'Frequently Asked Questions'),
-                SizedBox(
-                  height: height * 0.02,
-                ),
-                ...getFAQs(),
-                SizedBox(
-                  height: height * 0.1,
-                ),
-              ],
-            ),
-          ),
-        ],
+      child: padding(
+        context,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ScreenTitle(titleText: 'Frequently Asked Questions'),
+            spacing(height),
+            cardView(getFAQs())
+          ],
+        ),
       ),
     );
   }
@@ -45,30 +34,42 @@ class FAQs extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ExpansionTile(
-            title: Text(
-              "Q: ${faq['question']}. ",
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 16.5),
+          Theme(
+            data: ThemeData(
+              dividerColor: Colors.transparent,
+              hoverColor: Colors.transparent
             ),
-            children: [
-              Text(
-                "A: ${faq['answer']}. ",
+            child: ExpansionTile(
+              collapsedBackgroundColor: Colors.transparent,
+              expandedAlignment: Alignment.centerLeft,
+              backgroundColor: Colors.transparent,
+              tilePadding: EdgeInsets.symmetric(horizontal: 12.0),
+              childrenPadding: EdgeInsets.symmetric(horizontal: 12.0),
+              title: Text(
+                "Q: ${faq['question']}",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16.5),
+                style: TextStyle(
+                  fontSize: 15,
+                  color: WebsiteColor.googleGray,
+                ),
               ),
-            ],
-          ),
-          SizedBox(
-            height: 10,
+              children: [
+                Text(
+                  "A: ${faq['answer']}.",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: WebsiteColor.googleGray,
+                  ),
+                ),
+              ],
+            ),
           ),
           if (faqs.indexOf(faq) != faqs.length - 1)
             Divider(
-              color: Colors.black,
-              height: 1,
+              color: Colors.black26,
               thickness: 1,
-              indent: 0,
-              endIndent: 0,
+              height: 0.5,
             ),
         ],
       ),

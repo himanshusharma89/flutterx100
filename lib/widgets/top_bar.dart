@@ -4,7 +4,7 @@ import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/helpers/website_color.dart';
 import 'package:flutterx100/widgets/navigation_bar_item.dart';
 
-import 'constants.dart';
+import '../helpers/constants.dart';
 
 
 // ignore: must_be_immutable

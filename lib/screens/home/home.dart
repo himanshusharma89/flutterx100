@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/screens/home/welcome.dart';
-import 'package:flutterx100/widgets/constants.dart';
+import 'package:flutterx100/helpers/constants.dart';
 
 import 'intro.dart';
 
@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Welcome()),
           FractionallySizedBox(
-              widthFactor: ResponsiveLayout.isSmallScreen(context) ? 1 : 0.6,
+              widthFactor: ResponsiveLayout.isSmallScreen(context) ? 1 : 0.5,
               alignment: ResponsiveLayout.isSmallScreen(context)
                   ? Alignment.center
                   : Alignment.centerLeft,

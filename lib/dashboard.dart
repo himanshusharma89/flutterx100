@@ -3,7 +3,7 @@ import 'package:flutterx100/widgets/bottom_bar.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/screens/about.dart';
 import 'package:flutterx100/screens/home/home.dart';
-import 'package:flutterx100/widgets/constants.dart';
+import 'package:flutterx100/helpers/constants.dart';
 
 import 'screens/faqs.dart';
 import 'widgets/top_bar.dart';
@@ -54,7 +54,7 @@ class _DashboardState extends State<Dashboard> {
 
   Widget get desktopBody => ListView(
         controller: desktopController,
-        physics: ClampingScrollPhysics(),
+        // physics: ClampingScrollPhysics(),
         children: pageList,
       );
 

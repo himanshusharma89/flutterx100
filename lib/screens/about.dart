@@ -1,51 +1,22 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterx100/helpers/constants.dart';
 import 'package:flutterx100/helpers/responsive_layout.dart';
 import 'package:flutterx100/helpers/website_color.dart';
-import 'package:flutterx100/widgets/constants.dart';
 import 'package:flutterx100/widgets/screen_title.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class About extends StatelessWidget {
   final ScrollController scrollController = ScrollController();
   Widget getBenefits(BuildContext context) {
-    List<Widget> benefitWidgets = List<Widget>();
+    List<Widget> benefitWidgets = [];
 
     for (String benefit in benefits) {
       benefitWidgets.add(getBenefit(benefit));
     }
 
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(0, 1),
-                color: WebsiteColor.googleGraySecondary,
-                blurRadius: 5)
-          ]),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Scrollbar(
-          controller: scrollController,
-          isAlwaysShown: true,
-          thickness: 2,
-          child: ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            itemCount: benefitWidgets.length,
-            primary: false,
-            shrinkWrap: true,
-            physics: !ResponsiveLayout.isSmallScreen(context)
-                ? NeverScrollableScrollPhysics()
-                : null,
-            controller: scrollController,
-            itemBuilder: (context, index) => benefitWidgets[index],
-          ),
-        ),
-      ),
-    );
+    return cardView(benefitWidgets);
   }
 
   Widget getBenefit(String benefit) {
@@ -80,22 +51,14 @@ class About extends StatelessWidget {
     );
   }
 
-  Widget spacing(double height) {
-    return SizedBox(
-      height: height * 0.02,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Container(
       height: screenHeight(context),
       width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: 30,
-            horizontal: ResponsiveLayout.isSmallScreen(context) ? 25 : 190),
+      child: padding(
+        context,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -111,7 +74,9 @@ class About extends StatelessWidget {
             ),
             spacing(height),
             RichText(
+              textAlign: TextAlign.center,
               text: TextSpan(
+                
                 style: GoogleFonts.nunitoSans(
                   fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 18,
                   color: Colors.black,
@@ -135,6 +100,7 @@ class About extends StatelessWidget {
               ),
             ),
             RichText(
+              textAlign: TextAlign.center,
               text: TextSpan(
                 style: GoogleFonts.nunitoSans(
                   fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 18,
@@ -162,13 +128,13 @@ class About extends StatelessWidget {
               "Benefits: What the #100DaysOfFlutter Challenge can do for you",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 22,
+                fontSize: ResponsiveLayout.isSmallScreen(context) ? 16 : 18,
                 fontWeight: FontWeight.bold,
                 color: WebsiteColor.googleGrayPrimary,
               ),
             ),
             spacing(height),
-            Flexible(flex: 4, fit: FlexFit.loose, child: getBenefits(context)),
+            getBenefits(context),
           ],
         ),
       ),
