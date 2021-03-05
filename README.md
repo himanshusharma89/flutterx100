@@ -39,7 +39,7 @@ We follow certain guidelines in order to maintain this repository.Please find ou
 
 ## License
 
-Distributed under the CC0-1.0 License. See `LICENSE` for more information.
+Distributed under the CC0-1.0 License. See [LICENSE](https://github.com/himanshusharma89/flutterx100/blob/master/LICENSE) for more information.
 
 ## Developer ✨
 
